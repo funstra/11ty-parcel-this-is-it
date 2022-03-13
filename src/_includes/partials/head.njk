@@ -1,0 +1,33 @@
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/tailwind.css"/>
+  <script type="module" src="/src/js/main.js"></script>
+
+  <title>{{ title }}</title>
+
+  {# {% if preloads %}
+    {% for preload in preloads %}
+      <link rel="preload" as="text/css" href="/src/css/{{preload}}">
+    {% endfor %}
+  {% endif %} #}
+  {% if styles %}
+    {% for style in styles %}
+      <style>
+        @import "/src/css/{{style}}";
+      </style>
+      {# <link rel="stylesheet" href="/src/css/{{style}}"> #}
+    {% endfor %}
+  {% endif %}
+  {% if script != "" %}
+    {{script | log}}
+    <script type="module" src="{{script}}"></script>
+  {% endif %}
+  {% for studentPage in collections.students %}
+    {% set student = studentPage.data.student %}
+    <link rel="preload" href="{{studentPage.url}}" as="fetch" type="text/html">
+  {% endfor %}
+</head>

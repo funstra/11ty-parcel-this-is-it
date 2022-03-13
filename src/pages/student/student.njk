@@ -1,0 +1,14 @@
+---
+layout: base
+tags: students
+pagination:
+    data: students
+    size: 1
+    alias: student
+    addAllPagesToCollections: true
+permalink: "/student/{{student.name | slug}}/"
+---
+<div v-scope="{ count: 0 }">
+  ${ count }
+  <button @click="count++">inc</button>
+</div>

@@ -1,0 +1,5 @@
+@import "composition/index.css";
+
+body {
+  font-size: clamp(1rem, 10vw - 3rem, 4rem);
+}

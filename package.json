@@ -1,0 +1,35 @@
+{
+  "name": "11ty_parcel",
+  "source": "src/index.html",
+  "scripts": {
+    "dev:eleventy": "npx @11ty/eleventy --watch",
+    "build:eleventy": "npx @11ty/eleventy",
+    "dev:parcel": "parcel '_documents/**/*.html'",
+    "build:parcel": "parcel build '_documents/**/*.html'",
+    "dev": "concurrently npm:dev:*",
+    "build": "rimraf dist && npm run build:eleventy && npm run build:parcel"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@parcel/optimizer-css": "^2.3.2",
+    "@parcel/transformer-css-experimental": "^2.3.2",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "7.0.0",
+    "parcel": "latest",
+    "parcel-resolver-ignore": "^2.0.0",
+    "petite-vue": "^0.4.1",
+    "postcss": "^8.4.8",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.0.23"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true,
+      "customMedia": true
+    }
+  },
+  "parcelIgnore": [
+    "\/student\/.*\/$"
+  ]
+}

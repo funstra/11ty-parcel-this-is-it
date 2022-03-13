@@ -1,0 +1,21 @@
+<header class="flex flex-col">
+    <nav>
+        <ol class="flex items-center gap-4 py-1">
+            <li>
+                <a href="/">start</a>
+            </li>
+            <li>
+                <a href="/students">students</a>
+            </li>
+        </ol>
+    </nav>
+    <hr class="border-[1px]  border-black">
+    <nav>
+        <ul class="flex items-center gap-4 py-1">
+            {% for studentPage in collections.students %}
+                {% set student = studentPage.data.student %}
+                <a href="{{studentPage.url}}">{{student.name}}</a>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

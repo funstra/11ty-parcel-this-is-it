@@ -1,0 +1,6 @@
+.view {
+  & > * {
+    flex-basis: 100%;
+    flex-shrink: 0;
+  }
+}

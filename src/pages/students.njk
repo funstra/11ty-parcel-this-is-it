@@ -1,0 +1,14 @@
+---
+layout: base
+---
+<section>
+    <h1>The students</h1>
+    <ul>
+        {% for studentPage in collections.students %}
+            {% set student = studentPage.data.student %}
+            <li>
+                <h2>{{student.name}}</h2>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
